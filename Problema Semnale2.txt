@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <vector>
 using namespace std;
 
 class Semnal
@@ -230,18 +229,18 @@ public:
 		auto prev = sus;
 		if (prev->valoare > it->valoare)
 			if (prev->valoare < prag)
-				prev->valoare = it->valoare / 2;
+				prev->valoare = it->valoare/2;
 		while (it->urm != nullptr)
 		{
 			if (it->valoare > 0 && it->urm->valoare < it->valoare && prev->valoare < it->valoare)
 				if (it->valoare < prag)
-					it->valoare = (prev->valoare + it->urm->valoare) / 2;
+					it->valoare = (prev->valoare+it->urm->valoare)/2;
 			it = it->urm;
 			prev = prev->urm;
 		}
 		if (it->valoare > prev->valoare)
 			if (it->valoare < prag)
-				it->valoare = prev->valoare / 2;
+				it->valoare = prev->valoare/2;
 		auto it2 = sus;
 		while (it2 != nullptr)
 		{
@@ -280,44 +279,28 @@ int main()
 {
 	int tip;
 	double prag;
-	//vector<double> lst;
 	cin >> tip >> prag;
 	if (tip == 1)
 	{
-
-		vector<double> lst;
+		DSP1 list;
 		double x;
 		while (cin >> x)
 		{
-			lst.push_back(x);
-			//	list.adauga(x);
+			list.adauga(x);
 		}
-		DSP1 list;
-		for (int i = 0; i < lst.size(); i++)
-			list.adauga(lst[i]);
-	//	list.afisare();
 		list.f1();
 		list.f2(prag);
 		list.f3(prag);
 		list.f4();
-
-		//cout << endl;
 	}
 	else
 	{
-		vector<double> lst;
-
+		DSP2 list;
 		double x;
 		while (cin >> x)
 		{
-			lst.push_back(x);
+			list.adauga(x);
 		}
-		
-		DSP2 list;
-	//	list.adauga(lst);
-		//list.afisare();
-		for (int i = 0; i < lst.size(); i++)
-			list.adauga(lst[i]);
 		list.f1();
 		list.f2(prag);
 		list.f3(prag);
